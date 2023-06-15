@@ -14,7 +14,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_NO,   RGB_M_B, RGB_M_R, RGB_M_SW,RGB_M_SN,RGB_M_X, RGB_M_G, RGB_M_TW,KC_NO,   KC_NO,   KC_NO,   BL_DEC,  BL_INC,   KC_NO,  KC_NO,     KC_NO,
     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_UP,   KC_NO,   KC_NO,   RGB_HUI, RGB_HUD,   KC_NO,
     KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_LEFT, KC_DOWN, KC_RIGHT,KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,
-    KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   RGB_MOD, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,
+    KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   RGB_MOD, MAGIC_TOGGLE_NKRO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,
     KC_NO,   KC_NO,   KC_NO,   KC_ENT,  KC_ENT,  KC_TRNS, KC_ENT,  KC_ENT,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO
   )
 };
