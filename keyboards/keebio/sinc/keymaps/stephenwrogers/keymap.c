@@ -1,4 +1,66 @@
 #include QMK_KEYBOARD_H
+#include "sendstring_uk.h"
+
+enum custom_keycodes {
+    SWR_GIT_PULL = SAFE_RANGE,
+    SWR_GIT_PUSH,
+    SWR_GIT_DIFF,
+    SWR_GIT_STATUS,
+    SWR_GIT_CLEAN,
+    SWR_GIT_LOG,
+    SWR_GIT_COMMIT,
+    SWR_GIT_ADD,
+};
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+
+    switch(keycode) {
+
+    case SWR_GIT_PULL:
+        if (record->event.pressed) {
+            SEND_STRING("git pull\n");
+        }
+        break;
+
+    case SWR_GIT_PUSH:
+        if(record->event.pressed) {
+            SEND_STRING("git push\n");
+        }
+        break;
+    case SWR_GIT_DIFF:
+        if(record->event.pressed) {
+            SEND_STRING("git diff\n");
+        }
+        break;
+    case SWR_GIT_STATUS:
+        if(record->event.pressed) {
+            SEND_STRING("git status\n");
+        }
+        break;
+    case SWR_GIT_CLEAN:
+        if(record->event.pressed) {
+            SEND_STRING("git clean -df\n");
+        }
+        break;
+    case SWR_GIT_LOG:
+        if(record->event.pressed) {
+            SEND_STRING("git log\n");
+        }
+        break;
+    case SWR_GIT_ADD:
+        if(record->event.pressed) {
+            SEND_STRING("git add .\n");
+        }
+        break;
+    case SWR_GIT_COMMIT:
+        if(record->event.pressed) {
+            SEND_STRING("git commit -m \"\"" SS_TAP(X_LEFT));
+        }
+        break;
+    }
+
+    return true;
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_80_iso(
@@ -12,9 +74,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [1] = LAYOUT_80_iso(
     KC_MUTE,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,
     KC_NO,   RGB_M_B, RGB_M_R, RGB_M_SW,RGB_M_SN,RGB_M_X, RGB_M_G, RGB_M_TW,KC_NO,   KC_NO,   KC_NO,   BL_DEC,  BL_INC,   KC_NO,  KC_NO,     KC_NO,
-    KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_UP,   KC_NO,   KC_NO,   RGB_HUI, RGB_HUD,   KC_NO,
-    KC_TRNS, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_LEFT, KC_DOWN, KC_RIGHT,KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,
-    KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   RGB_MOD, MAGIC_TOGGLE_NKRO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,
+    KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_UP,   KC_NO,   SWR_GIT_PULL,   RGB_HUI, RGB_HUD,   KC_NO,
+    KC_TRNS, SWR_GIT_ADD,   SWR_GIT_STATUS,   SWR_GIT_DIFF,   KC_NO,   SWR_GIT_LOG,   SWR_GIT_PUSH,   KC_LEFT, KC_DOWN, KC_RIGHT,KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,
+    KC_NO,   KC_NO,   KC_NO,   KC_NO,   SWR_GIT_COMMIT,   KC_NO,   KC_NO,   SWR_GIT_CLEAN,   RGB_MOD, MAGIC_TOGGLE_NKRO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,  KC_NO,
     KC_NO,   KC_NO,   KC_NO,   KC_ENT,  KC_ENT,  KC_TRNS, KC_ENT,  KC_ENT,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO
   )
 };
