@@ -68,3 +68,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VIA_EEPROM_LAYOUT_OPTIONS_DEFAULT 0x00DE
 #define VIA_EEPROM_LAYOUT_OPTIONS_SIZE 2
 #define FORCE_NKRO
+#define SPLIT_USB_DETECT

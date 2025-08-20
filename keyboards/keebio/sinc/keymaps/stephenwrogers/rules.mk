@@ -1,1 +1,2 @@
 NKRO_ENABLE=yes
+SPLIT_USB_ENABLE = yes
